@@ -9,22 +9,22 @@ package garlic_heist;
  * @author vdaviet
  */
 public class Objets {
-    private double[] position = new double[2];
+    private double[] positionobj = new double[2];
     private double[][] nourritures = new double[3][2];
 
     public Objets() {
-        this.position = new double[2]; 
+        this.positionobj = new double[2]; 
         this.nourritures[0] = new double[]{5.0, 5.0};   // 1er item
         this.nourritures[1] = new double[]{10.0, 2.0};  // 2ème item
         this.nourritures[2] = new double[]{8.0, 12.0};  // 3ème item
     }
 
-    // Getter pour récupérer les positions de toute la nourriture
+    // Getter pour récupérer les positions de toute la nourriture g
     public double[][] getNourritures() {
         return nourritures;
     }
     public double[] getposition() {
-        return this.position;
+        return this.positionobj;
     }
    
 }
