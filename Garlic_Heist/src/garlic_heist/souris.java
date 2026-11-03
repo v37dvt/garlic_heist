@@ -14,52 +14,64 @@ public class souris {
     private int vie;
     private double[] nourriture = new double[1];
     private double[] position = new double[2];
+    private String[] nourrituresouris = new String [1];
     private String nom;
-
+    private BOTS bot;
+    private Objets nourritures;
+    private Objets positionobj;        
+            
     public souris() {
         this.deplacement = deplacement;
-        this.nourriture = nourriture;
         this.vie = 3;
         this.position = position;
-        this.nom = nom;
-
+        this.nom = "Souris";
     }
-
+    public double[] getposition(){
+        return position;
+    }
+    public String getnom(){
+        return nom;
+    }
     public void deplacementhaut() {
-        this.position[1] = this.position[1] + 1;
+        this.position[1] = this.position[1] + 1; 
     }
 
     public void deplacementbas() {
-        this.position[1] = this.position[1] - 1;
+        this.position[1] = this.position[1] - 1; 
     }
 
     public void deplacementgauche() {
-        this.position[1] = this.position[0] + 1;
+        this.position[0] = this.position[0] - 1; 
     }
 
     public void deplacementdroite() {
-        this.position[1] = this.position[0] - 1;
+        this.position[0] = this.position[0] + 1; 
     }
 
     public void mort_souris() {
-        if (this.vie == 0) {
+        if (this.vie <= 0) {
             System.out.println("la souris est morte");
         }
     }
+
+    public void perte_vie(BOTS botEnnemi) {
+        double[] posBot = botEnnemi.getposition(); 
+        if (Math.abs(this.position[0] - posBot[0]) + Math.abs(this.position[1] - posBot[1]) == 1) {
+            this.vie = this.vie - 1;
+            if (this.vie < 0) {
+                this.vie = 0; 
+            }
+            mort_souris(); 
+        }
+    }
+  
+
+    public void recuperation_objet(Objets nourriture){
+        double[] posobjets = nourritures.getposition();
+        if (Math.abs(this.position[0] - posobjets[0]) + Math.abs(this.position[1] - posobjets[1]) == 1) {
+            this.nourrituresouris=this.nourrituresouris[this.nourriture];            
+            }
+
+    }
 }
-/*
-    public void perte_vie(){
-    if (Math.abs(this.position[0] - position.BOTS[0]) 
-            + Math.abs(this.position[1] - position.BOTS[1]) == 1){
-        this.vie=this.vie-1;
-    }
- */
-
-
-
-     /*
-    public void recuperation_objet(){
-       if(len(nourriture=[])=0) and position.nourriture[]=position.souris
-            this.nourriture[1]=nourriture
-    }
-    */
+*/
